@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.PreparedStatement;;
 
 public class SQLqueries {
 
@@ -50,7 +51,6 @@ public class SQLqueries {
 				System.out.println("Sex: " + rows.getString("sex"));
 				System.out.println("Age: " + rows.getInt("age"));
 			}
-
 		} catch (SQLException e) {
 			System.out.println("Bad query");
 			e.printStackTrace();
@@ -58,12 +58,44 @@ public class SQLqueries {
 	}
 
 	public void readById(int readID) {
-		// TODO Auto-generated method stub
-		
+		String selectRow = "SELECT * FROM customers WHERE id = " + readID + ";";
+		try
+		{
+			rows = stat.executeQuery(selectRow);
+			while (rows.next())
+			{
+				System.out.println("ID: " + rows.getInt("id"));
+				System.out.println("First Name: " + rows.getString("first_name"));
+				System.out.println("Surname: " + rows.getString("surname"));
+				System.out.println("Sex: " + rows.getString("sex"));
+				System.out.println("Age: " + rows.getInt("age"));
+			}
+		}
+		catch (SQLException e) {
+			System.out.println("Bad query");
+			e.printStackTrace();
+		}
 	}
 
 	public void readByName(String readName) {
-		// TODO Auto-generated method stub
+		System.out.println(readName);
+		String selectRow = "SELECT * FROM customers WHERE surname = '" + readName + "';";
+		try
+		{
+			rows = stat.executeQuery(selectRow);
+			while (rows.next())
+			{
+				System.out.println("ID: " + rows.getInt("id"));
+				System.out.println("First Name: " + rows.getString("first_name"));
+				System.out.println("Surname: " + rows.getString("surname"));
+				System.out.println("Sex: " + rows.getString("sex"));
+				System.out.println("Age: " + rows.getInt("age"));
+			}
+		}
+		catch (SQLException e) {
+			System.out.println("Bad query");
+			e.printStackTrace();
+		}
 		
 	}
 

@@ -47,8 +47,8 @@ public class Queries {
 					query.read();
 					break;
 				case "readname":
-					System.out.println("Enter name of record to read: ");
-					String readName = scan.toString();
+					System.out.println("Enter surname of record to read: ");
+					String readName = scan.nextLine();
 					query.readByName(readName);
 					break;
 				case "readid":
