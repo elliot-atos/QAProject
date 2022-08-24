@@ -1,14 +1,13 @@
 package com.qa.project;
 
 public class Customers {
-	
+
 	private String firstName;
 	private String surName;
 	private int age;
 	private char sex;
-	
-	public Customers()
-	{
+
+	public Customers() {
 		super();
 	}
 
@@ -19,7 +18,7 @@ public class Customers {
 		this.age = age;
 		this.sex = sex;
 	}
-	
+
 	public String toString() {
 		return "Customer [Name=" + firstName + ", Surname=" + surName + ", Age=" + age + ", Sex=" + sex + "]";
 	}
@@ -55,6 +54,5 @@ public class Customers {
 	public void setSex(char sex) {
 		this.sex = sex;
 	}
-	
 
 }
