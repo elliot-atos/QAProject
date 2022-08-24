@@ -58,23 +58,22 @@ public class Queries {
 					query.readById(readID);
 					break;
 				case "updatefname":
-					System.out.println("Enter id of record to update: ");
-					int uid = scan.nextInt();
-					scan.nextLine();//capture enter key
+					System.out.println("Enter first name of record to update: ");
+					String oldFName = scan.nextLine();
 					System.out.println("Enter the new first name of the customer: ");
-					String ufname = scan.nextLine();
-					query.update(uid, ufname);					
+					String newFName = scan.nextLine();
+					query.updatefname(oldFName, newFName);					
 					break;
 				case "delete":
-					System.out.println("Enter id of record to delete: ");
-					int id = scan.nextInt();
-					scan.nextLine();//capture enter key
-					query.delete(id);
+					System.out.println("Enter first name of record to delete: ");
+					String fName = scan.nextLine();
+					System.out.println("Enter surname of record to delete: ");
+					String surname = scan.nextLine();
+					query.delete(fName, surname);
 					break;
 				default:
 					System.out.println("Invalid choice");
 				}
-				// check if user wants to continue or break out of the loop
 				System.out.println("Would you like to continue? (y/n)");
 				String quit = scan.nextLine();
 				if (quit.toLowerCase().equals("n")) 

@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.PreparedStatement;;
 
 public class SQLqueries {
 
@@ -16,7 +15,7 @@ public class SQLqueries {
 	public SQLqueries() {
 		try {
 			conn = DriverManager.getConnection(SQLconfig.URL, SQLconfig.USER, SQLconfig.PASS);
-			this.stat = conn.createStatement();// create a statement object to execute sql queries
+			this.stat = conn.createStatement();
 			System.out.println("Connection Successful!");
 		} catch (SQLException e) {
 			System.out.println("Incorrect credentials");
@@ -96,16 +95,30 @@ public class SQLqueries {
 			System.out.println("Bad query");
 			e.printStackTrace();
 		}
+	}
+
+	public void updatefname(String oldFName, String newFName) {
+		String updateStmt = "UPDATE customers SET first_name = '" + newFName + "' WHERE first_name = '" + oldFName + "';";
+		try {
+			stat.executeUpdate(updateStmt);
+			System.out.println("Update statement executed");
+			
+		}catch (SQLException e) {
+			System.out.println("Bad query");
+			e.printStackTrace();
+		}
 		
 	}
 
-	public void update(int uid, String ufname) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void delete(int id) {
-		// TODO Auto-generated method stub
+	public void delete(String fname, String surname) {
+		String delStmt = "DELETE FROM customers WHERE first_name = '" + fname + "' AND surname = '" + surname +"';";
+		try {
+			stat.executeUpdate(delStmt);
+			System.out.println("Delete statement executed");
+		} catch (SQLException e) {
+			System.out.println("Bad query");
+			e.printStackTrace();
+		}
 		
 	}
 
