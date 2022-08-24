@@ -6,6 +6,7 @@ public class Queries {
 
 	private static Scanner scan = new Scanner(System.in);
 	Customers customer = new Customers();
+	Customers customer2 = new Customers("tim", "JIM", 10, 'M');
 
 	static String getInput() {
 		System.out.println("Enter query choice: ");
