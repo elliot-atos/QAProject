@@ -15,7 +15,7 @@ public class Queries {
 	
 	public void queryType()
 	{
-		SQLqueries sql = new SQLqueries();
+		SQLqueries query = new SQLqueries();
 		boolean exit = false;
 		try
 		{
@@ -39,21 +39,21 @@ public class Queries {
 					int age = scan.nextInt();
 					scan.nextLine();
 					
-					SQLqueries.insert(new Customers(fname, sname, age, sex));
+					query.insert(new Customers(fname, sname, age, sex));
 					break;
 				case "read":
-					SQLqueries.read();
+					query.read();
 					break;
 				case "readname":
 					System.out.println("Enter name of record to read: ");
 					String readName = scan.toString();
-					SQLqueries.readByName(readName);
+					query.readByName(readName);
 					break;
 				case "readid":
 					System.out.println("Enter id of record to read: ");
 					int readID = scan.nextInt();
 					scan.nextLine();
-					SQLqueries.readById(readID);
+					query.readById(readID);
 					break;
 				case "updatefname":
 					System.out.println("Enter id of record to update: ");
@@ -61,13 +61,13 @@ public class Queries {
 					scan.nextLine();//capture enter key
 					System.out.println("Enter the new first name of the customer: ");
 					String ufname = scan.nextLine();
-					SQLqueries.update(uid, ufname);					
+					query.update(uid, ufname);					
 					break;
 				case "delete":
 					System.out.println("Enter id of record to delete: ");
 					int id = scan.nextInt();
 					scan.nextLine();//capture enter key
-					SQLqueries.delete(id);
+					query.delete(id);
 					break;
 				default:
 					System.out.println("Invalid choice");
@@ -83,7 +83,7 @@ public class Queries {
 			System.out.println("Goodbye.");
 		}finally
 		{
-			SQLqueries.close();		
+			query.close();		
 		}
 	}
 

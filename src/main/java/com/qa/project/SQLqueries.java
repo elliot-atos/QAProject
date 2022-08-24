@@ -1,41 +1,48 @@
 package com.qa.project;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
 public class SQLqueries {
 
-	public static void insert(Customers customers) {
-		
-		
+	
+	private Connection conn;
+	private Statement stat;
+	private ResultSet rows;
+	
+	public void insert(Customers customers) {
 		
 		// TODO Auto-generated method stub
 		
 	}
 
-	public static void read() {
+	public void read() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public static void readById(int readID) {
+	public void readById(int readID) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public static void readByName(String readName) {
+	public void readByName(String readName) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public static void update(int uid, String ufname) {
+	public void update(int uid, String ufname) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public static void delete(int id) {
+	public void delete(int id) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public static void close() {
+	public void close() {
 		// TODO Auto-generated method stub
 		
 	}
