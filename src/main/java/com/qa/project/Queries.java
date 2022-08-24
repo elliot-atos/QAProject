@@ -34,9 +34,11 @@ public class Queries {
 					
 					System.out.println("Enter sex: ");
 					char sex = scan.nextLine().charAt(0);
+					customer.setSex(sex);
 					
 					System.out.println("Enter age: ");
 					int age = scan.nextInt();
+					customer.setAge(age);
 					scan.nextLine();
 					
 					query.insert(new Customers(fname, sname, age, sex));
