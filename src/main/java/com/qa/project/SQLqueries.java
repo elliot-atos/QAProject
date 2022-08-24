@@ -26,10 +26,6 @@ public class SQLqueries {
 	public void insert(Customers c) {
 		String createStmt = "INSERT INTO customers(first_name, surname, sex, age) VALUES('" + c.getFirstName() + "','" + c.getSurName()
 		+ "','" + c.getSex() + "'," + c.getAge() + ");";
-		
-		//"INSERT INTO vehicle(model, mileage, vehicle_type, doors) VALUES('" + v.getModel() + "'," + v.getMileage()
-		//+ ",'" + v.getVehicleType() + "'," + v.getDoors() + ");";
-		
 		try 
 		{
 			stat.executeUpdate(createStmt);
@@ -44,8 +40,21 @@ public class SQLqueries {
 	
 
 	public void read() {
-		// TODO Auto-generated method stub
-		
+		String readStmt = "SELECT * FROM customers;";
+		try {
+			rows = stat.executeQuery(readStmt);
+			while (rows.next()) {
+				System.out.println("ID: " + rows.getInt("id"));
+				System.out.println("First Name: " + rows.getString("first_name"));
+				System.out.println("Surname: " + rows.getString("surname"));
+				System.out.println("Sex: " + rows.getString("sex"));
+				System.out.println("Age: " + rows.getInt("age"));
+			}
+
+		} catch (SQLException e) {
+			System.out.println("Bad query");
+			e.printStackTrace();
+		}
 	}
 
 	public void readById(int readID) {
